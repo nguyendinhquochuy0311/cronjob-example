@@ -43,28 +43,61 @@ public class CallHttpService {
     }
 
     public static void main(String[] args) {
-        RestTemplate restTemplate = new RestTemplate();
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        // Set headers
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//
+//        // JSON content to send
+//        String json = "{\"contents\":[{\"role\":\"user\",\"parts\":[{\"text\":\"what time is it?\"}]}]}";
+//
+//        HttpEntity<String> requestEntity = new HttpEntity<>(json, headers);
+//
+//        // Send request and retrieve response
+//        ResponseEntity<String> responseEntity = restTemplate.postForEntity(
+//                "https://generativelanguage.googleapis.com/v1/models/gemini-pro:streamGenerateContent?key=AIzaSyAMWtfwsuIPulFMID_SYDc90quz8gjKLGo",
+//                requestEntity,
+//                String.class);
+//
+//        // Save response to a file
+//        try (FileWriter fileWriter = new FileWriter("response.json")) {
+//            fileWriter.write(Objects.requireNonNull(responseEntity.getBody()));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        // Set headers
+        testPostFor();
+    }
+
+    public static void testPostFor(){
+        RestTemplate restTemplate = new RestTemplate();
+        String apiUrl = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:streamGenerateContent?key=AIzaSyAMWtfwsuIPulFMID_SYDc90quz8gjKLGo";
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        // JSON content to send
-        String json = "{\"contents\":[{\"role\":\"user\",\"parts\":[{\"text\":\"Write a story about a magic backpack.\"}]}]}";
+        String requestBody = "{\"contents\":[{\"role\":\"user\",\"parts\":[{\"text\":\"what time is it?\"}]}]}";
+        HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
 
-        HttpEntity<String> requestEntity = new HttpEntity<>(json, headers);
+        /**
+         * Test xem RestTemplate về postForEntity và postForObject
+         * Hiểu là cả 2 đều gửi request là post
+         * Entity nhận lại là JSon còn Object nhận lại là 1 Object
+         */
 
-        // Send request and retrieve response
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(
-                "https://generativelanguage.googleapis.com/v1/models/gemini-pro:streamGenerateContent?key=AIzaSyAMWtfwsuIPulFMID_SYDc90quz8gjKLGo",
-                requestEntity,
-                String.class);
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(apiUrl, requestEntity, String.class);
 
-        // Save response to a file
-        try (FileWriter fileWriter = new FileWriter("response.json")) {
-            fileWriter.write(Objects.requireNonNull(responseEntity.getBody()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        /**
+         * Mới test đc Entity. Test Object lỗi chưa fix được
+         */
+//        ResponseEntity<String> responseEntity = restTemplate.postForObject(apiUrl, requestEntity, ResponseEntity.class);
+
+        HttpStatus statusCode = (HttpStatus) responseEntity.getStatusCode();
+        String responseBody = responseEntity.getBody();
+
+        System.out.println("Status code: " + statusCode);
+        System.out.println("Response body: " + responseBody);
+
     }
 }

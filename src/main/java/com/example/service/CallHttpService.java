@@ -25,10 +25,10 @@ public class CallHttpService {
      */
 
     public Response callChatGpt(Request payload, String token) {
-        var client = WebClientUtils.getWebClient("domain");
+        var client = WebClientUtils.getWebClient("https://chat.openai.com/");
         return client
                 .method(HttpMethod.POST)
-                .uri("/path")
+                .uri("/")
                 .header("token", token)
                 .body(BodyInserters.fromObject(payload))
                 .retrieve()

@@ -15,7 +15,8 @@
     <name>itachi</name>
 	<description>You must be born again</description>
     <modules>
-        <module>partner-service</module>
+		<module>lib-common</module>
+		<module>partner-service</module>
 		<module>order-service</module>
 	</modules>
     <properties>

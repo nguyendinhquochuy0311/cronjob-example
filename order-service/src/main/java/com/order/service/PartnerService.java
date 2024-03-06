@@ -1,8 +1,8 @@
 package com.order.service;
 
+import com.common.base.model.request.ItachiRequest;
+import com.common.base.model.response.ItachiResponse;
 import com.order.base.ServiceClient;
-import com.order.model.PartnerRequest;
-import com.order.model.PartnerResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,17 +20,17 @@ public class PartnerService {
         this.serviceClient = serviceClient;
     }
 
-    public PartnerResponse callPartner(String message) {
+    public ItachiResponse callPartner(String message) {
         String apiUrl = buildUrl(this.partnerDomain, this.partnerPath);
-        return serviceClient.executePost(buildRequest(message), apiUrl, PartnerResponse.class);
+        return serviceClient.executePost(buildRequest(message), apiUrl, ItachiResponse.class);
     }
 
     private String buildUrl(String... value) {
         return String.join("/", value);
     }
 
-    private PartnerRequest buildRequest(String message) {
-        PartnerRequest partnerRequest = new PartnerRequest();
+    private ItachiRequest buildRequest(String message) {
+        ItachiRequest partnerRequest = new ItachiRequest();
         partnerRequest.setId(123);
         partnerRequest.setName("phong");
         partnerRequest.setContent(message);

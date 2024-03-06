@@ -1,7 +1,7 @@
 package com.order.cronjob;
 
-import com.order.model.PartnerResponse;
-import com.order.model.PartnerStatusCode;
+import com.common.base.model.constant.ItachiStatusCode;
+import com.common.base.model.response.ItachiResponse;
 import com.order.service.PartnerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +25,8 @@ public class CronJobService {
     public void scheduleTaskWithFixedRate() {
         // call send email method here
         logger.info("[HELLO CRONJOB] - Time: {}", new Date().getTime());
-        PartnerResponse response = geminiService.callPartner("Test Call Microservice");
-        if (PartnerStatusCode.OK.getStatus() == response.getStatus()) {
+        ItachiResponse response = geminiService.callPartner("Test Call Microservice");
+        if (ItachiStatusCode.OK.getStatus() == response.getStatus()) {
             logger.info("process success");
         } else {
             logger.info("Handle failed");

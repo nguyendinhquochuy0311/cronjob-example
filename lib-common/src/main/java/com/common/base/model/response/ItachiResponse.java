@@ -1,5 +1,6 @@
-package com.order.model;
+package com.common.base.model.response;
 
+import com.common.base.model.constant.ItachiStatusCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class PartnerResponse {
+public class ItachiResponse {
 
     private int status;
     private String message;
@@ -17,25 +18,25 @@ public class PartnerResponse {
 
     private long time = System.currentTimeMillis();
 
-    public PartnerResponse(int status, String message, Object data) {
+    public ItachiResponse(int status, String message, Object data) {
         this.status = status;
         this.message = message;
         this.data = data;
     }
 
-    public PartnerResponse(int status, String message) {
+    public ItachiResponse(int status, String message) {
         this.status = status;
         this.message = message;
         this.data = null;
     }
 
-    public PartnerResponse(PartnerStatusCode statusCode, Object data) {
+    public ItachiResponse(ItachiStatusCode statusCode, Object data) {
         this.status = statusCode.getStatus();
         this.message = statusCode.getMessage();
         this.data = data;
     }
 
-    public PartnerResponse(PartnerStatusCode statusCode) {
+    public ItachiResponse(ItachiStatusCode statusCode) {
         this.status = statusCode.getStatus();
         this.message = statusCode.getMessage();
         this.data = null;

@@ -1,4 +1,4 @@
-package com.order.base.json;
+package com.common.base.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

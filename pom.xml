@@ -8,12 +8,12 @@
 		<version>3.2.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.uchiha.itachi</groupId>
+	<artifactId>uchiha-itachi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>demo</name>
-	<description>Demo project for Spring Boot</description>
+    <name>itachi</name>
+	<description>You must be born again</description>
     <modules>
         <module>partner-service</module>
 		<module>order-service</module>

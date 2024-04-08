@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PartnerController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @PostMapping(value = "data-test")
+    @PostMapping(value = "data-test/asd")
     public MessageResponse exportDataExample(@RequestBody ItachiRequest request) {
         logger.info("REQUEST {}", JsonUtils.objectToJsonStr(request));
         return new MessageResponse(StatusCode.OK);

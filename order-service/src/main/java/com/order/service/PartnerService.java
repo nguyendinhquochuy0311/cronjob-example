@@ -32,7 +32,7 @@ public class PartnerService {
     private ItachiRequest buildRequest(String message) {
         ItachiRequest partnerRequest = new ItachiRequest();
         partnerRequest.setId(123);
-        partnerRequest.setName("phong");
+        partnerRequest.setName("phongsd");
         partnerRequest.setContent(message);
         return partnerRequest;
     }

@@ -17,7 +17,7 @@ public class PartnerApplication {
         TimeZone.setDefault(TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
         SpringApplication.run(PartnerApplication.class, args);
         logger.info("***********************************");
-        logger.info("****** Partner Service Start ******");
+        logger.info("** Partner Service Start Success **");
         logger.info("***********************************");
     }
 }

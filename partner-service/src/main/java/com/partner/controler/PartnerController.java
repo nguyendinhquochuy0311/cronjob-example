@@ -16,7 +16,7 @@ public class PartnerController {
 
     @PostMapping(value = "data-test")
     public MessageResponse exportDataExample(@RequestBody ItachiRequest request) {
-        logger.info("REQUEST {}", JsonUtils.objectToJsonStr(request));
+        logger.info("REQUEST: {}", JsonUtils.objectToJsonStr(request));
         return new MessageResponse(StatusCode.OK);
     }
 }
